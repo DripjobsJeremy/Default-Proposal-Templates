@@ -375,6 +375,7 @@
   }
   .helper-banner-dismiss:hover { background: rgba(0,0,0,0.06); color: var(--gray-700); }
   .helper-banner.hidden { display: none; }
+  .d-none { display: none !important; }
 
   /* ─── TEMPLATE TITLE AREA ─── */
   .template-title-area {
@@ -1212,7 +1213,7 @@
             <tr onclick="openTemplate('ext-pressure-wash')">
               <td>
                 <span class="template-name-link">EXT Paint + Pressure Wash</span>
-                <span class="default-badge">DEFAULT</span>
+                <span class="default-badge" id="list-badge-ext-pw">DEFAULT</span>
                 <span class="action-icons" style="display:inline-flex;margin-left:10px;" onclick="event.stopPropagation()">
                   <span class="action-icon edit" title="Edit" onclick="openTemplate('ext-pressure-wash')">
                     <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-5m-1.414-9.414a2 2 0 1 1 2.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
@@ -1233,6 +1234,7 @@
             <tr onclick="openTemplate('int-packages')">
               <td>
                 <span class="template-name-link">INT Packages (Line Items)</span>
+                <span class="default-badge d-none" id="list-badge-int-packages">DEFAULT</span>
                 <span class="action-icons" style="display:inline-flex;margin-left:10px;" onclick="event.stopPropagation()">
                   <span class="action-icon edit" title="Edit" onclick="openTemplate('int-packages')">
                     <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-5m-1.414-9.414a2 2 0 1 1 2.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
@@ -1309,6 +1311,7 @@
               <span class="pencil-btn" onclick="showToast('Template name edit mode')">
                 <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-5m-1.414-9.414a2 2 0 1 1 2.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
               </span>
+              <span class="template-default-badge" id="title-badge-ext-pw">DEFAULT</span>
             </div>
           </div>
 
@@ -1323,11 +1326,11 @@
 
           <div class="default-card">
             <div class="radio-row">
-              <input type="radio" name="default-pw" id="def-pw" checked>
-              <label for="def-pw" style="cursor:pointer;font-weight:700;">Default proposal</label>
+              <input type="radio" name="default-template" id="def-ext-pw" value="ext-pw" checked onclick="handleDefaultClick(this)">
+              <label for="def-ext-pw" style="cursor:pointer;font-weight:700;">Set as default proposal</label>
             </div>
             <div class="sub-text">This template automatically loads when creating new proposals.</div>
-            <div class="current-default" style="color:#166534;font-weight:700;">✓ This is your current default template.</div>
+            <div class="current-default" id="default-indicator-ext-pw" style="color:#166534;font-weight:700;">✓ This is your current default template.</div>
           </div>
 
           <button class="btn btn-light-purple" onclick="showToast('Template duplicated successfully')">Duplicate Template</button>
@@ -1584,7 +1587,7 @@
             <div class="template-name-display">
               INT Packages (Line Items)
               <span class="pencil-btn" onclick="showToast('Template name edit mode')"><svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-5m-1.414-9.414a2 2 0 1 1 2.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg></span>
-              <span class="template-default-badge">DEFAULT</span>
+              <span class="template-default-badge d-none" id="title-badge-int-packages">DEFAULT</span>
             </div>
           </div>
 
@@ -1595,11 +1598,11 @@
 
           <div class="default-card">
             <div class="radio-row">
-              <input type="radio" name="default-ip" id="def-ip" checked>
-              <label for="def-ip" style="cursor:pointer;font-weight:700;">Set as default proposal</label>
+              <input type="radio" name="default-template" id="def-int-packages" value="int-packages" onclick="handleDefaultClick(this)">
+              <label for="def-int-packages" style="cursor:pointer;font-weight:700;">Set as default proposal</label>
             </div>
             <div class="sub-text">This template will automatically load when creating new proposals.</div>
-            <div class="current-default" style="color:var(--gray-600);">This is your current default template</div>
+            <div class="current-default d-none" id="default-indicator-int-packages" style="color:#166534;font-weight:700;">✓ This is your current default template.</div>
           </div>
 
           <button class="btn btn-light-purple" onclick="showToast('Template duplicated successfully')">Duplicate Template</button>
@@ -2081,6 +2084,70 @@
       });
     });
   });
+
+  // ─── DEFAULT TEMPLATE SWITCHING ───
+  const TEMPLATE_LABELS = {
+    'ext-pw':       'EXT Paint + Pressure Wash',
+    'int-packages': 'INT Packages (Line Items)',
+  };
+
+  let currentDefault = 'ext-pw'; // tracks the active default
+
+  function handleDefaultClick(radio) {
+    if (radio.value === currentDefault) {
+      // Clicking an already-selected radio → deselect it
+      radio.checked = false;
+      currentDefault = null;
+      applyDefault(null);
+    } else {
+      currentDefault = radio.value;
+      applyDefault(radio.value);
+    }
+  }
+
+  function applyDefault(value) {
+    const templates = ['ext-pw', 'int-packages'];
+
+    templates.forEach(tpl => {
+      const isDefault = (tpl === value);
+
+      // List screen badge
+      const listBadge = document.getElementById('list-badge-' + tpl);
+      if (listBadge) listBadge.classList.toggle('d-none', !isDefault);
+
+      // Title area badge on template screen
+      const titleBadge = document.getElementById('title-badge-' + tpl);
+      if (titleBadge) titleBadge.classList.toggle('d-none', !isDefault);
+
+      // "✓ This is your current default" indicator
+      const indicator = document.getElementById('default-indicator-' + tpl);
+      if (indicator) indicator.classList.toggle('d-none', !isDefault);
+    });
+
+    // Update modal dropdown
+    const sel = document.getElementById('modal-template-select');
+    if (!sel) return;
+    if (value) {
+      // Mark selected option with (Default) label
+      Array.from(sel.options).forEach(opt => {
+        if (opt.value === value) {
+          opt.text = TEMPLATE_LABELS[value] + ' (Default)';
+          opt.selected = true;
+        } else if (opt.value !== 'blank') {
+          opt.text = TEMPLATE_LABELS[opt.value] || opt.text.replace(' (Default)', '');
+        }
+      });
+    } else {
+      // No default — clear all (Default) labels, select Blank
+      Array.from(sel.options).forEach(opt => {
+        if (opt.value !== 'blank') {
+          opt.text = TEMPLATE_LABELS[opt.value] || opt.text.replace(' (Default)', '');
+        } else {
+          opt.selected = true;
+        }
+      });
+    }
+  }
 
   // ─── NEW PROPOSAL MODAL ───
   function openNewProposalModal() {
