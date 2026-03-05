@@ -951,6 +951,7 @@
             <tr onclick="openTemplate('ext-pressure-wash')">
               <td>
                 <span class="template-name-link">EXT Paint + Pressure Wash</span>
+                <span class="default-badge">DEFAULT</span>
                 <span class="action-icons" style="display:inline-flex;margin-left:10px;" onclick="event.stopPropagation()">
                   <span class="action-icon edit" title="Edit" onclick="openTemplate('ext-pressure-wash')">
                     <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-5m-1.414-9.414a2 2 0 1 1 2.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
@@ -965,7 +966,7 @@
               </td>
               <td style="color:var(--gray-500)">—</td>
               <td style="color:var(--gray-600)">0%</td>
-              <td style="color:var(--gray-800); font-weight:700;">$21.00</td>
+              <td style="color:var(--gray-800); font-weight:700;">$0.00</td>
               <td style="color:var(--gray-500);">5/22/2025</td>
             </tr>
             <tr onclick="openTemplate('ext-premium')">
@@ -985,13 +986,12 @@
               </td>
               <td style="color:var(--gray-500)">—</td>
               <td style="color:var(--gray-600)">0%</td>
-              <td style="color:var(--gray-800); font-weight:700;">$21.00</td>
+              <td style="color:var(--gray-800); font-weight:700;">$0.00</td>
               <td style="color:var(--gray-500);">10/21/2024</td>
             </tr>
             <tr onclick="openTemplate('int-packages')">
               <td>
                 <span class="template-name-link">INT Packages (Line Items)</span>
-                <span class="default-badge">DEFAULT</span>
                 <span class="action-icons" style="display:inline-flex;margin-left:10px;" onclick="event.stopPropagation()">
                   <span class="action-icon edit" title="Edit" onclick="openTemplate('int-packages')">
                     <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-5m-1.414-9.414a2 2 0 1 1 2.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
@@ -1102,11 +1102,11 @@
 
           <div class="default-card">
             <div class="radio-row">
-              <input type="radio" name="default-pw" id="def-pw">
-              <label for="def-pw" style="cursor:pointer;font-weight:700;">Set as default proposal</label>
+              <input type="radio" name="default-pw" id="def-pw" checked>
+              <label for="def-pw" style="cursor:pointer;font-weight:700;">Default proposal</label>
             </div>
-            <div class="sub-text">This template will automatically load when creating new proposals.</div>
-            <div class="current-default">Current default: <strong>INT Packages (Line Items)</strong></div>
+            <div class="sub-text">This template automatically loads when creating new proposals.</div>
+            <div class="current-default" style="color:#166534;font-weight:700;">✓ This is your current default template.</div>
           </div>
 
           <button class="btn btn-light-purple" onclick="showToast('Template duplicated successfully')">Duplicate Template</button>
@@ -1137,10 +1137,10 @@
                     </span>
                   </td>
                   <td>1.00</td>
-                  <td>$20.00 / Ea</td>
-                  <td>$20.00</td>
-                  <td>$1.00</td>
-                  <td>$21.00</td>
+                  <td>—</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
                 </tr>
                 <tr>
                   <td>
@@ -1168,9 +1168,9 @@
               <tfoot>
                 <tr class="li-total-row">
                   <td colspan="3" style="font-weight:800;">Total</td>
-                  <td>$20.00</td>
-                  <td>$1.00</td>
-                  <td class="total-dark">$21.00</td>
+                  <td>$0.00</td>
+                  <td>$0.00</td>
+                  <td class="total-dark">$0.00</td>
                 </tr>
               </tfoot>
             </table>
@@ -1201,11 +1201,11 @@
           <div class="totals-section">
             <div class="section-header">Totals</div>
             <table class="totals-table">
-              <tr><td>Subtotal</td><td>$20.00</td></tr>
-              <tr><td>Tax</td><td>$1.00</td></tr>
+              <tr><td>Subtotal</td><td>$0.00</td></tr>
+              <tr><td>Tax</td><td>$0.00</td></tr>
               <tr class="totals-total-row">
                 <td style="text-align:right;font-weight:800;color:var(--gray-800);">Total</td>
-                <td><div class="totals-dark-cell">$21.00</div></td>
+                <td><div class="totals-dark-cell">$0.00</div></td>
               </tr>
             </table>
           </div>
@@ -1279,7 +1279,7 @@
                   <div class="ps-title">Payment Schedule</div>
                   <button class="btn btn-outline btn-xs" onclick="showToast('Add payment schedule milestone')">Add</button>
                 </div>
-                <div class="settings-row"><span class="settings-label">Remaining Balance:</span><span class="settings-value">(100.00%) - $21.00</span></div>
+                <div class="settings-row"><span class="settings-label">Remaining Balance:</span><span class="settings-value">(100.00%) - $0.00</span></div>
                 <div class="settings-row"><span class="settings-label">Show Schedule on Proposal:</span><label class="toggle"><input type="checkbox"><div class="toggle-track"></div><div class="toggle-thumb"></div></label></div>
                 <div class="settings-row"><span class="settings-label">Show Schedule Percentages on Proposal:</span><label class="toggle"><input type="checkbox"><div class="toggle-track"></div><div class="toggle-thumb"></div></label></div>
               </div>
@@ -1368,7 +1368,7 @@
               <label for="def-ep" style="cursor:pointer;font-weight:700;">Set as default proposal</label>
             </div>
             <div class="sub-text">This template will automatically load when creating new proposals.</div>
-            <div class="current-default">Current default: <strong>INT Packages (Line Items)</strong></div>
+            <div class="current-default">Current default: <strong>EXT Paint + Pressure Wash</strong></div>
           </div>
 
           <button class="btn btn-light-purple" onclick="showToast('Template duplicated successfully')">Duplicate Template</button>
@@ -1391,7 +1391,7 @@
               <tbody>
                 <tr>
                   <td><span class="drag-handle">≡</span><span class="li-name">EXT Painting (sq ft)</span><span class="li-actions"><span class="li-action-btn"><svg width="13" height="13" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" d="M8 16H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2m-6 12h8a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-8a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2z"/></svg></span><span class="li-action-btn"><svg width="13" height="13" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M15.172 7l-6.586 6.586a2 2 0 1 0 2.828 2.828l6.414-6.586a4 4 0 0 0-5.656-5.656l-6.415 6.585a6 6 0 1 0 8.486 8.486L20.5 13"/></svg></span></span></td>
-                  <td>1.00</td><td>$20.00 / Ea</td><td>$20.00</td><td>$1.00</td><td>$21.00</td>
+                  <td>1.00</td><td>—</td><td>$0.00</td><td>$0.00</td><td>$0.00</td>
                 </tr>
                 <tr><td><span class="drag-handle">≡</span><span class="li-name">Pressure Washing</span><span class="li-actions"><span class="li-action-btn"><svg width="13" height="13" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" d="M8 16H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2m-6 12h8a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-8a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2z"/></svg></span><span class="li-action-btn"><svg width="13" height="13" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M15.172 7l-6.586 6.586a2 2 0 1 0 2.828 2.828l6.414-6.586a4 4 0 0 0-5.656-5.656l-6.415 6.585a6 6 0 1 0 8.486 8.486L20.5 13"/></svg></span></span></td><td colspan="5"><span class="desc-only-badge">Description only</span></td></tr>
                 <tr><td><span class="drag-handle">≡</span><span class="li-name">Premium Paint</span><span class="li-actions"><span class="li-action-btn"><svg width="13" height="13" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" d="M8 16H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2m-6 12h8a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-8a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2z"/></svg></span><span class="li-action-btn"><svg width="13" height="13" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M15.172 7l-6.586 6.586a2 2 0 1 0 2.828 2.828l6.414-6.586a4 4 0 0 0-5.656-5.656l-6.415 6.585a6 6 0 1 0 8.486 8.486L20.5 13"/></svg></span></span></td><td colspan="5"><span class="desc-only-badge">Description only</span></td></tr>
@@ -1401,8 +1401,8 @@
               <tfoot>
                 <tr class="li-total-row">
                   <td colspan="3" style="font-weight:800;">Total</td>
-                  <td>$20.00</td><td>$1.00</td>
-                  <td class="total-dark">$21.00</td>
+                  <td>$0.00</td><td>$0.00</td>
+                  <td class="total-dark">$0.00</td>
                 </tr>
               </tfoot>
             </table>
@@ -1425,9 +1425,9 @@
           <div class="totals-section">
             <div class="section-header">Totals</div>
             <table class="totals-table">
-              <tr><td>Subtotal</td><td>$20.00</td></tr>
-              <tr><td>Tax</td><td>$1.00</td></tr>
-              <tr class="totals-total-row"><td style="text-align:right;font-weight:800;color:var(--gray-800);">Total</td><td><div class="totals-dark-cell">$21.00</div></td></tr>
+              <tr><td>Subtotal</td><td>$0.00</td></tr>
+              <tr><td>Tax</td><td>$0.00</td></tr>
+              <tr class="totals-total-row"><td style="text-align:right;font-weight:800;color:var(--gray-800);">Total</td><td><div class="totals-dark-cell">$0.00</div></td></tr>
             </table>
           </div>
           <div class="apply-discount-wrap"><button class="btn btn-outline btn-sm" onclick="showToast('Apply Discount')">Apply Discount</button></div>
@@ -1446,7 +1446,7 @@
             <div class="settings-grid">
               <div class="settings-card">
                 <div class="settings-card-title">Payment Settings</div>
-                <div class="settings-row"><span class="settings-label">Deposit:</span><span class="settings-value link">10.00% ($2.10)</span></div>
+                <div class="settings-row"><span class="settings-label">Deposit:</span><span class="settings-value link">0.00% ($0.00)</span></div>
                 <div class="settings-row"><span class="settings-label">Allow Alternative Payment <span class="info-icon">i</span></span><label class="toggle"><input type="checkbox" checked><div class="toggle-track"></div><div class="toggle-thumb"></div></label></div>
                 <div class="settings-row"><span class="settings-label">Company Tax Rate:</span><span class="settings-value">5.000%</span></div>
                 <div class="settings-row"><span class="settings-label">Line Item Quantity Only <span class="info-icon">i</span></span><label class="toggle"><input type="checkbox"><div class="toggle-track"></div><div class="toggle-thumb"></div></label></div>
@@ -1461,7 +1461,7 @@
                 <div class="settings-row"><span class="settings-label">Allow Customer Proposal Rejection <span class="info-icon">i</span></span><label class="toggle"><input type="checkbox" checked><div class="toggle-track"></div><div class="toggle-thumb"></div></label></div>
                 <div class="settings-row"><span class="settings-label">Allow Customer Change Requests <span class="info-icon">i</span></span><label class="toggle"><input type="checkbox" checked><div class="toggle-track"></div><div class="toggle-thumb"></div></label></div>
               </div>
-              <div class="payment-schedule-card"><div class="ps-header"><div class="ps-title">Payment Schedule</div><button class="btn btn-outline btn-xs" onclick="showToast('Add milestone')">Add</button></div><div class="settings-row"><span class="settings-label">Remaining Balance:</span><span class="settings-value">(100.00%) - $21.00</span></div><div class="settings-row"><span class="settings-label">Show Schedule on Proposal:</span><label class="toggle"><input type="checkbox"><div class="toggle-track"></div><div class="toggle-thumb"></div></label></div><div class="settings-row"><span class="settings-label">Show Schedule Percentages on Proposal:</span><label class="toggle"><input type="checkbox"><div class="toggle-track"></div><div class="toggle-thumb"></div></label></div></div>
+              <div class="payment-schedule-card"><div class="ps-header"><div class="ps-title">Payment Schedule</div><button class="btn btn-outline btn-xs" onclick="showToast('Add milestone')">Add</button></div><div class="settings-row"><span class="settings-label">Remaining Balance:</span><span class="settings-value">(100.00%) - $0.00</span></div><div class="settings-row"><span class="settings-label">Show Schedule on Proposal:</span><label class="toggle"><input type="checkbox"><div class="toggle-track"></div><div class="toggle-thumb"></div></label></div><div class="settings-row"><span class="settings-label">Show Schedule Percentages on Proposal:</span><label class="toggle"><input type="checkbox"><div class="toggle-track"></div><div class="toggle-thumb"></div></label></div></div>
               <div class="financing-card"><div class="settings-card-title">Financing</div><div class="acorn-logo"><div class="acorn-logo-icon">🌿</div><div class="acorn-logo-text">Acorn</div><div class="acorn-logo-sub">FINANCE</div></div><div class="acorn-note">Acorn Financing widget won't show unless the amount is greater than $1000.</div></div>
             </div>
           </div>
@@ -1771,7 +1771,7 @@
               <label for="def-intP" style="cursor:pointer;font-weight:700;">Set as default proposal</label>
             </div>
             <div class="sub-text">This template will automatically load when creating new proposals.</div>
-            <div class="current-default">Current default: <strong>INT Packages (Line Items)</strong></div>
+            <div class="current-default">Current default: <strong>EXT Paint + Pressure Wash</strong></div>
           </div>
 
           <button class="btn btn-light-purple" onclick="showToast('Template duplicated successfully')">Duplicate Template</button>
