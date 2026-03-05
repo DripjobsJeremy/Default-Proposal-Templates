@@ -957,11 +957,13 @@
     background: white;
     border: 1px solid var(--gray-200);
     border-radius: var(--radius);
-    padding: 18px 20px;
+    padding: 18px 20px 18px 20px;
     display: flex;
     flex-direction: column;
     gap: 6px;
+    position: relative;
   }
+  .path-card.hidden { display: none; }
   .path-card-step {
     font-size: 11px;
     font-weight: 800;
@@ -1168,13 +1170,15 @@
       </div>
 
       <!-- Two-path guide -->
-      <div class="two-path-guide">
-        <div class="path-card">
+      <div class="two-path-guide" id="two-path-guide">
+        <div class="path-card" id="path-step-1">
+          <button type="button" class="helper-banner-dismiss" onclick="dismissBanner('path-step-1')">✕ Got it</button>
           <div class="path-card-step">Step 1 — Optional</div>
           <div class="path-card-title">📋 Review a Template</div>
           <div class="path-card-body">Click any template below to preview its line items, packages, and settings. We've added default verbiage to your <strong>Notes</strong> and a custom <strong>"About Us"</strong> section — feel free to update them to match your business, or keep what we've added for you.</div>
         </div>
-        <div class="path-card path-card-cta">
+        <div class="path-card path-card-cta" id="path-step-2">
+          <button type="button" class="helper-banner-dismiss" onclick="dismissBanner('path-step-2')">✕ Got it</button>
           <div class="path-card-step">Step 2 — Ready to go?</div>
           <div class="path-card-title">🚀 Start a New Proposal</div>
           <div class="path-card-body">Head to the Sales Pipeline and click <strong>New Proposal</strong>. Your default template loads instantly — or pick a different one from the dropdown.</div>
