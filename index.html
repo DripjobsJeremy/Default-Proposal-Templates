@@ -945,6 +945,167 @@
   .custom-section-body p { margin-bottom: 10px; }
   .custom-section-body p:last-child { margin-bottom: 0; }
 
+  /* ─── TWO-PATH GUIDE (list screen) ─── */
+  .two-path-guide {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 700px) { .two-path-guide { grid-template-columns: 1fr; } }
+  .path-card {
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .path-card-step {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--purple);
+  }
+  .path-card-title {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--gray-900);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .path-card-body {
+    font-size: 13px;
+    color: var(--gray-500);
+    line-height: 1.5;
+    flex: 1;
+  }
+  .path-card-cta { border-color: var(--purple); border-left: 4px solid var(--purple); }
+  .path-card-action { margin-top: 10px; }
+
+  /* ─── NEXT STEP CTA (template screens) ─── */
+  .next-step-card {
+    background: linear-gradient(135deg, #F5F3FF 0%, #EFF6FF 100%);
+    border: 1px solid #DDD6FE;
+    border-left: 4px solid var(--purple);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .next-step-card-content { flex: 1; }
+  .next-step-card-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--purple);
+    margin-bottom: 4px;
+  }
+  .next-step-card-body { font-size: 13px; color: var(--gray-600); line-height: 1.5; }
+
+  /* ─── NEW PROPOSAL MODAL ─── */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 2000;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px 16px;
+    overflow-y: auto;
+  }
+  .modal-overlay.hidden { display: none; }
+  .modal-box {
+    background: white;
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-width: 500px;
+    box-shadow: var(--shadow-lg);
+  }
+  .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .modal-title { font-size: 18px; font-weight: 800; color: var(--gray-900); }
+  .modal-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--gray-400);
+    font-size: 18px;
+    line-height: 1;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: 'Nunito', sans-serif;
+  }
+  .modal-close:hover { color: var(--gray-700); background: var(--gray-100); }
+  .modal-body { max-height: calc(100vh - 220px); overflow-y: auto; }
+  .modal-section { padding: 18px 24px; border-bottom: 1px solid var(--gray-100); }
+  .modal-section-label {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--purple);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+  .modal-field { margin-bottom: 14px; }
+  .modal-field:last-child { margin-bottom: 0; }
+  .modal-label { font-size: 13px; font-weight: 700; color: var(--gray-700); margin-bottom: 6px; display: block; }
+  .modal-input, .modal-select {
+    width: 100%;
+    border: 1px solid var(--gray-300);
+    border-radius: 6px;
+    padding: 9px 12px;
+    font-size: 13px;
+    font-family: 'Nunito', sans-serif;
+    color: var(--gray-800);
+    outline: none;
+    background: white;
+  }
+  .modal-input:focus, .modal-select:focus { border-color: var(--purple); box-shadow: 0 0 0 3px rgba(124,58,237,0.1); }
+  .modal-input::placeholder { color: var(--gray-400); }
+  .modal-select { cursor: pointer; }
+  .modal-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .modal-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  .modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 16px 24px;
+    border-top: 1px solid var(--gray-200);
+  }
+  .modal-note {
+    font-size: 12px;
+    color: var(--gray-500);
+    background: var(--gray-50);
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+  .modal-note strong { color: var(--teal); }
+  .modal-input-readonly { background: var(--gray-50); color: var(--gray-500); }
+  .modal-drips-row { display: flex; align-items: center; justify-content: space-between; }
+  .modal-drips-label { margin-bottom: 0; }
+  .modal-drips-disable { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--gray-600); }
+  .modal-label-blue { color: var(--blue); }
+  .modal-label-orange { color: var(--orange); }
+
   /* ─── RESPONSIVE ─── */
   @media (max-width: 640px) {
     .main-content { padding: 16px; }
@@ -1004,6 +1165,26 @@
           </div>
         </div>
         <button type="button" class="helper-banner-dismiss" onclick="dismissBanner('helper-list-welcome')">✕ Got it</button>
+      </div>
+
+      <!-- Two-path guide -->
+      <div class="two-path-guide">
+        <div class="path-card">
+          <div class="path-card-step">Step 1 — Optional</div>
+          <div class="path-card-title">📋 Review a Template</div>
+          <div class="path-card-body">Click any template name below to preview its line items, packages, notes, and settings before sending your first proposal.</div>
+        </div>
+        <div class="path-card path-card-cta">
+          <div class="path-card-step">Step 2 — Ready to go?</div>
+          <div class="path-card-title">🚀 Start a New Proposal</div>
+          <div class="path-card-body">Head to the Sales Pipeline and click <strong>New Proposal</strong>. Your default template loads instantly — or pick a different one from the dropdown.</div>
+          <div class="path-card-action">
+            <button type="button" class="btn btn-primary btn-sm" onclick="openNewProposalModal()">
+              <svg width="13" height="13" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2.5" stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+              Start New Proposal
+            </button>
+          </div>
+        </div>
       </div>
 
       <div class="templates-table-wrap">
@@ -1375,6 +1556,14 @@
 
           <div class="template-created-info">Template created at 5/22/2025 11:50:04 AM by Jesus Rubio</div>
 
+          <div class="next-step-card">
+            <div class="next-step-card-content">
+              <div class="next-step-card-title">✅ Template looking good?</div>
+              <div class="next-step-card-body">Ready to send your first proposal using this template? Head to the Sales Pipeline and click <strong>New Proposal</strong> — this template will load automatically if it's set as your default, or select it from the dropdown.</div>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="openNewProposalModal()">Start New Proposal →</button>
+          </div>
+
           <div class="bottom-actions">
             <button class="btn btn-ghost" onclick="showToast('View/Edit Terms & Conditions')">View/ Edit T&C's</button>
             <button class="btn btn-danger" onclick="showToast('Delete confirmation would appear')">Delete Template</button>
@@ -1544,6 +1733,14 @@
 
           <a class="payments-link" onclick="showToast('Click here to setup online payments')">Click here to setup online payments›</a>
           <div class="template-created-info">Template created at 10/21/2024 by Jeremy Harrison</div>
+          <div class="next-step-card">
+            <div class="next-step-card-content">
+              <div class="next-step-card-title">✅ Template looking good?</div>
+              <div class="next-step-card-body">Ready to send your first proposal using this template? Head to the Sales Pipeline and click <strong>New Proposal</strong> — this template will load automatically if it's set as your default, or select it from the dropdown.</div>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="openNewProposalModal()">Start New Proposal →</button>
+          </div>
+
           <div class="bottom-actions">
             <button class="btn btn-ghost" onclick="showToast('View/Edit Terms & Conditions')">View/ Edit T&C's</button>
             <button class="btn btn-danger" onclick="showToast('Delete confirmation would appear')">Delete Template</button>
@@ -1778,6 +1975,14 @@
 
           <a class="payments-link" onclick="showToast('Click here to setup online payments')">Click here to setup online payments›</a>
           <div class="template-created-info">Template created at 3/5/2026 by Jeremy Harrison</div>
+          <div class="next-step-card">
+            <div class="next-step-card-content">
+              <div class="next-step-card-title">✅ Template looking good?</div>
+              <div class="next-step-card-body">Ready to send your first proposal using this template? Head to the Sales Pipeline and click <strong>New Proposal</strong> — this template will load automatically if it's set as your default, or select it from the dropdown.</div>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="openNewProposalModal()">Start New Proposal →</button>
+          </div>
+
           <div class="bottom-actions">
             <button class="btn btn-ghost" onclick="showToast('View/Edit Terms & Conditions')">View/ Edit T&C's</button>
             <button class="btn btn-danger" onclick="showToast('Delete confirmation would appear')">Delete Template</button>
@@ -1944,12 +2149,162 @@
 
           <a class="payments-link" onclick="showToast('Click here to setup online payments')">Click here to setup online payments›</a>
           <div class="template-created-info">Template created at 3/5/2026 by Jeremy Harrison</div>
+          <div class="next-step-card">
+            <div class="next-step-card-content">
+              <div class="next-step-card-title">✅ Template looking good?</div>
+              <div class="next-step-card-body">Ready to send your first proposal using this template? Head to the Sales Pipeline and click <strong>New Proposal</strong> — this template will load automatically if it's set as your default, or select it from the dropdown.</div>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="openNewProposalModal()">Start New Proposal →</button>
+          </div>
+
           <div class="bottom-actions">
             <button class="btn btn-ghost" onclick="showToast('View/Edit Terms & Conditions')">View/ Edit T&C's</button>
             <button class="btn btn-danger" onclick="showToast('Delete confirmation would appear')">Delete Template</button>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     NEW PROPOSAL MODAL
+════════════════════════════════════════════════════════ -->
+<div id="modal-new-proposal" class="modal-overlay hidden" onclick="if(event.target===this)closeNewProposalModal()">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="modal-title">New Proposal</div>
+      <button type="button" class="modal-close" onclick="closeNewProposalModal()">✕</button>
+    </div>
+    <div class="modal-body">
+
+      <!-- TEMPLATE -->
+      <div class="modal-section">
+        <div class="modal-section-label">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"/></svg>
+          Template
+        </div>
+        <div class="modal-field">
+          <label class="modal-label">Proposal Template</label>
+          <select class="modal-select" id="modal-template-select">
+            <option value="ext-pw" selected>EXT Paint + Pressure Wash (Default)</option>
+            <option value="ext-premium">EXT Painting (Premium)</option>
+            <option value="int-packages">INT Packages (Line Items)</option>
+            <option value="int-painting">INT Painting</option>
+            <option value="blank">— Blank (no template) —</option>
+          </select>
+          <div class="modal-note"><strong>Note:</strong> If you remove the default from a template, <strong>Blank</strong> becomes the default — your team will build proposals from scratch. You can always select a template from this dropdown.</div>
+        </div>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="modal-section">
+        <div class="modal-section-label">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+          Contact Information
+        </div>
+        <div class="modal-field">
+          <label class="modal-label">Contact</label>
+          <select class="modal-select"><option>New Contact</option><option>Existing Contact...</option></select>
+        </div>
+        <div class="modal-row">
+          <div class="modal-field">
+            <label class="modal-label">First Name</label>
+            <input type="text" class="modal-input" placeholder="Enter a first name">
+          </div>
+          <div class="modal-field">
+            <label class="modal-label">Last Name</label>
+            <input type="text" class="modal-input" placeholder="Enter a last name">
+          </div>
+        </div>
+        <div class="modal-row">
+          <div class="modal-field">
+            <label class="modal-label">E-mail</label>
+            <input type="email" class="modal-input" placeholder="Enter an email">
+          </div>
+          <div class="modal-field">
+            <label class="modal-label">Phone</label>
+            <input type="tel" class="modal-input" placeholder="Enter a phone number">
+          </div>
+        </div>
+        <div class="modal-row">
+          <div class="modal-field">
+            <label class="modal-label">Lead Source</label>
+            <select class="modal-select"><option>Google</option><option>Referral</option><option>Facebook</option><option>Door Hanger</option><option>Yard Sign</option></select>
+          </div>
+          <div class="modal-field">
+            <label class="modal-label">Deal Name</label>
+            <input type="text" class="modal-input" placeholder="Deal name">
+          </div>
+        </div>
+        <div class="modal-field">
+          <label class="modal-label">Stage</label>
+          <input type="text" class="modal-input modal-input-readonly" value="In Draft" readonly>
+        </div>
+      </div>
+
+      <!-- DRIPS -->
+      <div class="modal-section">
+        <div class="modal-drips-row">
+          <div class="modal-section-label modal-drips-label">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="#3B82F6" stroke-width="2" stroke-linecap="round" d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+            <span class="modal-label-blue">Drips</span>
+          </div>
+          <div class="modal-drips-disable">
+            Disable
+            <label class="toggle"><input type="checkbox"><div class="toggle-track"></div><div class="toggle-thumb"></div></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- JOB ADDRESS -->
+      <div class="modal-section">
+        <div class="modal-section-label">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="#F97316" stroke-width="2" stroke-linecap="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/><path stroke="#F97316" stroke-width="2" d="M15 11a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg>
+          <span class="modal-label-orange">Job Address</span>
+        </div>
+        <div class="modal-field">
+          <label class="modal-label">Street</label>
+          <input type="text" class="modal-input" placeholder="Enter street">
+        </div>
+        <div class="modal-row-3">
+          <div class="modal-field">
+            <label class="modal-label">City</label>
+            <input type="text" class="modal-input" placeholder="Enter city">
+          </div>
+          <div class="modal-field">
+            <label class="modal-label">State</label>
+            <input type="text" class="modal-input" placeholder="Enter state">
+          </div>
+          <div class="modal-field">
+            <label class="modal-label">Postal Code</label>
+            <input type="text" class="modal-input" placeholder="Enter postal code">
+          </div>
+        </div>
+      </div>
+
+      <!-- ASSIGNMENT -->
+      <div class="modal-section">
+        <div class="modal-section-label">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Assignment
+        </div>
+        <div class="modal-row">
+          <div class="modal-field">
+            <label class="modal-label">Salesperson</label>
+            <select class="modal-select"><option>Jeremy Harrison</option></select>
+          </div>
+          <div class="modal-field">
+            <label class="modal-label">Project Manager</label>
+            <select class="modal-select"><option>Select a project manager...</option></select>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-ghost" onclick="closeNewProposalModal()">Close</button>
+      <button type="button" class="btn btn-primary" onclick="showToast('Proposal created — opening editor'); closeNewProposalModal();">Start</button>
     </div>
   </div>
 </div>
@@ -2115,6 +2470,16 @@
       });
     });
   });
+
+  // ─── NEW PROPOSAL MODAL ───
+  function openNewProposalModal() {
+    document.getElementById('modal-new-proposal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeNewProposalModal() {
+    document.getElementById('modal-new-proposal').classList.add('hidden');
+    document.body.style.overflow = '';
+  }
 
   // ─── HELPER BANNER ───
   function dismissBanner(id) {
